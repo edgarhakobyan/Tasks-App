@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TasksApp</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="task_status">Task Status</string>
+
+    <string-array name="statuses">
+        <item>To Do</item>
+        <item>In Progress</item>
+        <item>Done</item>
+    </string-array>
+</resources>
