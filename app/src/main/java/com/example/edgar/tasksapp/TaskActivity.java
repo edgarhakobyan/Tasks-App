@@ -35,7 +35,6 @@ public class TaskActivity extends AppCompatActivity {
                 String currentStatus = status.getSelectedItem().toString();
                 currentTask.setStatus(currentStatus);
 
-
                 Intent addTaskIntent = new Intent(TaskActivity.this, MainActivity.class);
                 startActivity(addTaskIntent);
             }

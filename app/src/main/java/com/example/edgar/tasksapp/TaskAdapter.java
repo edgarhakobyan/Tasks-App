@@ -36,8 +36,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(TaskViewHolder holder, int position) {
-        holder.taskTitle.setText(tasks.get(position).getTitle());
-        holder.taskStatus.setText(tasks.get(position).getStatus());
+        holder.taskTitle.setText(filteredTasks.get(position).getTitle());
+        holder.taskStatus.setText(filteredTasks.get(position).getStatus());
     }
 
     public static ArrayList<Task> filterByPriority(ArrayList<Task> allTasks, String priority) {
@@ -74,7 +74,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                         }
                     }
                     filteredTasks = filteredList;
-                    System.out.println("======= filteredTasks====== = " + filteredList.size() + " : " + filteredTasks.toString());
                 }
 
                 FilterResults filterResults = new FilterResults();

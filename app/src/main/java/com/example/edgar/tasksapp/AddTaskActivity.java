@@ -15,7 +15,6 @@ public class AddTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_task);
 
         Button addTask = (Button) findViewById(R.id.add);
-
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -23,7 +22,6 @@ public class AddTaskActivity extends AppCompatActivity {
                 TextView description = (TextView) findViewById(R.id.description);
 
                 MainActivity.myTasks.add(new Task(title.getText().toString(), description.getText().toString()));
-
 
                 Intent addTaskIntent = new Intent(AddTaskActivity.this, MainActivity.class);
                 startActivity(addTaskIntent);
