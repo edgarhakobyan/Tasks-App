@@ -2,6 +2,7 @@ package com.example.edgar.tasksapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     public void onBindViewHolder(TaskViewHolder holder, int position) {
         holder.taskTitle.setText(filteredTasks.get(position).getTitle());
         holder.taskStatus.setText(filteredTasks.get(position).getStatus());
+        holder.taskStatus.setTextColor(Color.parseColor(filteredTasks.get(position).getStatusColor()));
     }
 
     public static ArrayList<Task> filterByPriority(ArrayList<Task> allTasks, String priority) {

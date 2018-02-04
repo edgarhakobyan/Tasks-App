@@ -8,11 +8,13 @@ public class Task {
     private String title;
     private String description;
     private String status;
+    private String statusColor;
 
     public Task(String title, String description) {
         this.title = title;
         this.description = description;
         this.status = "To Do";
+        this.statusColor = "#ff0099cc";
     }
 
 
@@ -34,9 +36,26 @@ public class Task {
 
     public void setStatus(String status) {
         this.status = status;
+        switch (status) {
+            case "In Progress":
+                setStatusColor("#ffff8800");
+                break;
+            case "Done":
+                setStatusColor("#ff669900");
+                break;
+        }
     }
 
     public String getStatus() {
         return status;
     }
+
+    public void setStatusColor(String statusColor) {
+        this.statusColor = statusColor;
+    }
+
+    public String getStatusColor() {
+        return statusColor;
+    }
+
 }

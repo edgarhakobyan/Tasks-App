@@ -21,11 +21,12 @@
         </activity>
         <activity
             android:name=".AddTaskActivity"
+            android:label="Add Task"
             android:parentActivityName=".MainActivity">
-
         </activity>
         <activity
             android:name=".TaskActivity"
+            android:label="Task"
             android:parentActivityName=".MainActivity">
         </activity>
     </application>
