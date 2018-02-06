@@ -1,6 +1,7 @@
 package com.example.edgar.tasksapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
+
+import com.example.edgar.tasksapp.db.TaskDbHelper;
+import com.example.edgar.tasksapp.db.TaskProvider;
 
 import java.util.ArrayList;
 
@@ -32,6 +36,10 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        TaskDbHelper mTaskDbHelper = TaskProvider.getTaskProvider(this);
+        SQLiteDatabase dbRead = mTaskDbHelper.getReadableDatabase();
+        myTasks = TaskProvider.getAllDataFromDb(dbRead);
 
         setAdapter(myTasks);
 
@@ -136,7 +144,8 @@ public class MainActivity extends AppCompatActivity
 
     private void setAdapter(ArrayList<Task> tasks) {
         mAdapter = new TaskAdapter(MainActivity.this, tasks);
-        myView =  (RecyclerView) findViewById(R.id.recyclerView);
+        //RecyclerView myView;
+        myView = (RecyclerView) findViewById(R.id.recyclerView);
         myView.setHasFixedSize(true);
         myView.setAdapter(mAdapter);
         LinearLayoutManager llm = new LinearLayoutManager(this);

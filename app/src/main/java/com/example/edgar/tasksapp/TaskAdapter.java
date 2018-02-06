@@ -39,7 +39,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     public void onBindViewHolder(TaskViewHolder holder, int position) {
         holder.taskTitle.setText(filteredTasks.get(position).getTitle());
         holder.taskStatus.setText(filteredTasks.get(position).getStatus());
-        holder.taskStatus.setTextColor(Color.parseColor(filteredTasks.get(position).getStatusColor()));
+        holder.taskStatus.setTextColor(Color.parseColor(getStatusColor(filteredTasks.get(position).getStatus())));
     }
 
     public static ArrayList<Task> filterByPriority(ArrayList<Task> allTasks, String priority) {
@@ -103,7 +103,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             taskTitle = (TextView) itemView.findViewById(R.id.titleView);
             taskStatus = (TextView) itemView.findViewById(R.id.status);
 
-
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -114,6 +113,17 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                     context.startActivity(intent);
                 }
             });
+        }
+    }
+
+    private String getStatusColor(String status) {
+        switch (status) {
+            case "In Progress":
+                return "#ffff8800";
+            case "Done":
+                return "#ff669900";
+            default:
+                return "#ff0099cc";
         }
     }
 }
